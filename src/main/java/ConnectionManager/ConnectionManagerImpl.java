@@ -10,8 +10,10 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class ConnectionManagerImpl implements ConnectionManager {
+    // Логгер
     private static Logger logger = Logger.getLogger(ConnectionManagerImpl.class);
     private static ConnectionManager connectionManager;
+    //Переменная, хранящая значения переменных из файла conf.properties
     Properties property = new Properties();
 
     private ConnectionManagerImpl() {
@@ -25,6 +27,11 @@ public class ConnectionManagerImpl implements ConnectionManager {
         return connectionManager;
     }
 
+    /**
+     * Метод проходит по файлу пропертис и находит необходимые значения для коннекта
+     *
+     * @return
+     */
     @Override
     public Connection getConnection() {
         try {

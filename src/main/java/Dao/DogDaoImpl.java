@@ -16,6 +16,12 @@ public class DogDaoImpl implements DogDao {
     private static ConnectionManager connectionManager = ConnectionManagerImpl.getInstance();
     private static Logger logger = Logger.getLogger(DogDaoImpl.class);
 
+    /**
+     * Метод сохранения собаки в БД
+     *
+     * @param dog - собака для сохранения
+     * @return true если успешное сохранение, иначе false
+     */
     @Override
     public boolean addDog(Dog dog) {
         try (Connection connection = connectionManager.getConnection()) {
@@ -30,6 +36,12 @@ public class DogDaoImpl implements DogDao {
         return true;
     }
 
+    /**
+     * Метод получения записи из таблицы Dogs по ID
+     *
+     * @param id - ID записи в таблице
+     * @return объект класса Dog
+     */
     @Override
     public Dog getDogById(int id) {
         Dog dog = null;
@@ -45,11 +57,13 @@ public class DogDaoImpl implements DogDao {
         return dog;
     }
 
+    //todo:
     @Override
     public boolean updateDog(Dog dog) {
         return false;
     }
 
+    //todo:
     @Override
     public boolean deleteDogById(int id) {
         return false;

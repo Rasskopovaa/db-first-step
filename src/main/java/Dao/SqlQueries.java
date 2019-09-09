@@ -1,5 +1,8 @@
 package Dao;
 
+/**
+ * Класс содержит константы preparedStatement'ов
+ */
 public class SqlQueries {
     static final String INSERT_INTO_DOGS_VALUES = "INSERT INTO DOGS VALUES(default , ?, ?)";
     static final String SELECT_DOG_BY_ID = "SELECT * FROM DOGS WHERE ID = ?";

@@ -1,5 +1,5 @@
-EASY WAY TO START EDUCATION WITH DB
+EASY WAY TO START EDUCATION WITH DB (POSTGRES)
 
-IN \src\main\resources\SQL\db.sql THERE IS EXAMPLE OF TABLE TO START WITH
+IN FILE \src\main\resources\SQL\db.sql THERE IS AN EXAMPLE OF A TABLE TO START WORKING WITH
 
-NEED TO COPY conf.properties_example and rename it to conf.properties
+YOU NEED TO COPY conf.properties_example and rename it to conf.properties
