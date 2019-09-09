@@ -1,0 +1,5 @@
+.gradle
+gradle
+.idea
+out
+main\resources\conf.properties
