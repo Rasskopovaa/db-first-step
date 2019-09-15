@@ -35,8 +35,7 @@ public class ConnectionManagerImpl implements ConnectionManager {
     @Override
     public Connection getConnection() {
         try {
-            ClassLoader loader = Thread.currentThread().getContextClassLoader();
-            InputStream stream = loader.getResourceAsStream("conf.properties");
+            InputStream stream = this.getClass().getClassLoader().getResourceAsStream("conf.properties");
             property.load(stream);
         } catch (IOException e) {
             logger.error(e.getMessage());
