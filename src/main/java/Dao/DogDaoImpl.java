@@ -60,12 +60,31 @@ public class DogDaoImpl implements DogDao {
     //todo:
     @Override
     public boolean updateDog(Dog dog) {
+        try (Connection connection = connectionManager.getConnection()) {
+            PreparedStatement preparedStatement = null;
+            preparedStatement = connection.prepareStatement(SqlQueries.UPDATE_DOGS_BY_ID);
+            preparedStatement = DogMapper.getPreparedStatementFromDog(preparedStatement, dog);
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+        }
         return false;
     }
 
     //todo:
     @Override
     public boolean deleteDogById(int id) {
+        Dog dog = null;
+        try (Connection connection = connectionManager.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(SqlQueries.DELETE_FROM_DOGS_BY_ID);
+            preparedStatement = DogMapper.getPreparedStatementFromDogID(preparedStatement, id);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                dog = DogMapper.getDogFromResultSet(resultSet);
+            }
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+        }
         return false;
     }
+
 }
